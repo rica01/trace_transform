@@ -1,0 +1,69 @@
+\chapter{Conclusiones y trabajo futuro} 
+
+A lo largo del presente trabajo se ha evaluado el desempeño de la Transformada de Trazo en términos de tiempo de extracción de características y precisión de clasificación. 
+
+Los experimentos aquí realizados pretenden aportar evidencia estadística favor de la hipótesis de investigación:
+\textit{La Transformada de Trazo presenta mejores resultados estadísticamente, en precisión de clasificación y en tiempo de extracción de características, al variar los parámetros de frecuencia, el tipo de clasificador y el tipo de cobertura.}
+Se demostró estadísticamente como los parámetros de frecuencia influencian el tiempo de extracción y no así el tipo de cobertura de terreno. También se demostró como el clasificador utilizado afecta la precisión pero no así, todos los parámetros de frecuencia. 
+
+A partir de los datos expuestos por los experimentos, se llega a las siguientes conclusiones:
+\begin{enumerate}
+
+\item A la luz del experimento A, \textbf{a parámetros de frecuencia más finos, mayor el tiempo de extracción}. La combinación de parámetros $\Delta \tau=1$, $\Delta \rho=1$ y $\Delta \phi=0.5$ resultan en el mayor tiempo de extracción y la combinación $\Delta \tau=3$, $\Delta \rho=3$ y $\Delta \phi=2$ en la menor.
+
+\item De los parámetros de frecuencia, el que carga más peso para el tiempo de extracción es \textbf{$\Delta \tau$}: está presente en todas las interacciones reportadas como significativas. Esto hace que se necesite un particular cuidado al escoger este parámetro ya que los tiempos de respuesta pueden variar de 17,66167 a 52,60333 segundos en promedio.
+
+\item El tipo de \textbf{cobertura} de terreno, a pesar de ser significativo estadísticamente cuando se transformó a rangos, \textbf{presenta mínimo efecto sobre el tiempo de extracción}.
+
+\item El experimento B señala que \textbf{la precisión depende casi exclusivamente del clasificador utilizado}, donde el método aditivo LogitBoost presenta el mejor rendimiento.
+
+\item De los parámetros de frecuencia, $\Delta \tau$ nuevamente se presenta como un factor relevante luego de transformar los datos a rangos, aunque en términos de \textbf{porcentaje de precisión la diferencia que hace escoger un valor u otro de $\Delta \tau$ es mínima}.
+
+\item Según los datos experimentales, \textbf{no es útil hacer un barrido fino}. Los clasificadores se comportan de manera similar, a excepción de Kmeans, sea grueso o fino el barrido de la imagen. Las ganancias que pueden presentar los otros tres clasificadores, cerca del \textbf{7\% en precisión no justifica invertir 42 veces más tiempo en la extracción}. Aunque esta decisión tampoco debe tomarse a la ligera, pues depende del área de aplicación de la TT: tal vez en clasificación de imágenes áreas 7\% no sea de gran importancia, pero si las imágenes a procesar fueran de una tomografía axial computarizada para detectar cáncer, ese pequeño porcentaje podría salvar vidas.
+
+\item Dados los tiempos y la precisión observada, es posible construir una versión de la TT que utilice valores gruesos de frecuencia y un clasificador LogitBoost que corra en un equipo portátil para giras de campo (geografía).
+
+\end{enumerate}
+
+
+\section{Aportes}
+
+Dentro del alcance de esta propuesta se definen los siguientes entregables:
+\begin{enumerate}
+    \item Prototipo de un programa para la extracción de características usando la TT. En este prototipo deben ser parametrizables, los parámetros de frecuencia y el clasificador.
+    \item Prototipo de los clasificadores.
+    \item Programas auxiliares para la ejecución y el control de los 2 anteriores.
+    \item Análisis estadístico para contrastar los resultados de los experimentos.
+    \item Artículo científico que se entregará al comité editorial de alguna revista o conferencia, con miras a su publicación.
+\end{enumerate}
+
+
+
+El trabajo realizado en esta investigación cumplió con los entregables establecidos:
+\begin{enumerate}
+\item Una implementación de la TT parametrizada.
+\item Una implementación de los clasificadores, utilizando el sistema Weka.
+\item Los programas auxiliares para la ejecución y el control de los experimentos.
+\item El análisis estadístico de los experimentos.
+\item Un artículo científico, que fue aceptado para presentación y publicación en el IWOBI 2015\footnote{\url{http://iwobi.ulpgc.es/}}.
+\end{enumerate}
+
+\section{Trabajo futuro}
+\label{sect:Future work}
+Luego de realizar esta investigación surgen varias preguntas de investigación surgen y quedan abiertos varios caminos para plantear nuevos proyectos. Se proponen entonces las siguientes ideas para trabajos futuros:
+
+\begin{enumerate}
+
+\item Construir un generador de mapas de cobertura, utilizando la clasificación dada por el estudio aquí hecho y ajustado para maximizar la precisión y minimizar el tiempo de extracción de características.
+
+\item Dadas las diferentes arquitecturas de procesadores y jerarquías de memoria, la medición y adaptación de la TT a otras plataformas de ejecución sería de interés para optimización.
+
+\item La aplicación en imágenes más grandes y en otros campos, especialmente en las ciencias médicas, es de gran interés; existe un gran conjunto de datos de imágenes médicas que se puede explotar y que pueden tener un gran impacto en la calidad de vida.
+
+\item El uso de una ventana de análisis en imágenes grandes se debe estudiar también, y contrastar con la técnica de segmentar la imagen en otras más pequeñas. Se puede a su vez medir el impacto que puede tener ésta ventana en la precisión.
+
+\item La selección de funcionales y por lo tanto de TF es un tema que se debe abordar. Es posible que el aporte que brindan las TF no sea el mismo para la clasificación, y que un número mejor de funcionales sea posible de implementar sin perder precisión.
+
+\item Se debe comparar el rendimiento de la TT contra otras técnicas automatizadas de clasificación de imágenes, particularmente en el área geográfica.
+\end{enumerate}
+

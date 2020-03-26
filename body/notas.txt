@@ -1,0 +1,14 @@
+propuyesta de rena:
+
+
+Además, aquí en el Centro Nacional de Alta Tecnología (CeNAT), se cuenta con un Programa de Investigaciones Aerotransportadas (PRIAS) entre cuyas funciones principales esta el análisis e edición de imágenes aéreas del territorio nacional. Una implementación de este algoritmo permitiría al laboratorio ver las ventajas de las GPUs en el procesamiento y análisis de imágenes mediante métodos numéricos no solo en las funciones que se pueden realizar con la transformada de Trazo sino que también con otros algoritmos que trabajen de manera similar.
+
+
+La transformada de Trazo (Kadyrov & Petrou, 2001) es un método para representación de imágenes 2D a partir de funcionales que se calculan sobre líneas trazadas sobre la imagen original. Dos funcionales son aplicadas a la transformación inicial para obtener un número llamado característica triple que representa las propiedades invariantes de la imagen original. Las funcionales que se aplican a la imagen y a sus representaciones pueden proveer información sobre características subyacentes que tienen en común diversas imágenes similares. Por ejemplo, en una secuencia de imágenes que muestre cambios graduales en textura, puede utilizarse para identificar una serie de características que representen estos cambios. En este trabajo se aplicará el método de la transformada de Trazo al análisis de imágenes aéreas que muestren cambios graduales en texturas por cobertura boscosa, urbana, entre otras, para extraer una serie de características que representen adecuadamente estos cambios. Las características extraídas podrán luego ser utilizadas para el análisis de imágenes futuras o para el ordenamiento jerárquico automático de las imágenes.
+
+El análisis de imágenes es uno de los campos de más desarrollo en el área de computación y constantemente salen nuevas técnicas y métodos para resolver problemas. La transformada de Trazo presenta una ventaja sobre otras técnicas ya que permite la extracción de gran cantidad de características de las imágenes que pueden utilizarse para diferentes tareas. Sin embargo, esta capacidad se ve limitada si no se cuenta con formas de procesar y analizar grandes cantidades de imágenes en forma rápida y eficiente. Es aquí que consideramos que una implementación de la transformada de Trazo en GPUs puede agilizar esta tarea y proveer resultados en tiempos mucho más cortos.
+
+
+
+
+

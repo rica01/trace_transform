@@ -1,0 +1,163 @@
+% Two side to save paper
+% openrigth means to put the chapter tittle on the right pages 
+\documentclass[12pt,letterpaper,twoside,openright]{book}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+
+% We define some strings that will use along
+\def \thesiskeywords {}
+\def \pdfauthor {Ricardo Román}
+\def \thesistitle {Modelo de sensibilidad de los parámetros de frecuencia de la Transformada de Trazo para la clasificación de imágenes aéreas}
+
+\usepackage[bookmarks=true, linktoc=all, colorlinks=false, pdftitle={\thesistitle}, pdfauthor={\pdfauthor}, pdfsubject={\thesistitle}, pdfkeywords={\thesiskeywords}, linkcolor=blue,filecolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+
+%\usepackage{apacite}
+%\let\APAbibcite\bibcite
+\bibliographystyle{ieeetr}
+
+
+
+\usepackage{epigraph}
+\usepackage{acronym}
+\usepackage{fancyhdr}
+\usepackage{mdwlist}
+\usepackage{alltt}
+\usepackage{setspace}
+\usepackage[pdftex]{graphicx}
+\usepackage[scaled]{helvet} % ss
+\usepackage{courier} % tt
+\usepackage[T1]{fontenc}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{longtable}
+\usepackage{siunitx}
+%\usepackage{lib/algorithm-es}
+\usepackage{algorithm}
+\usepackage{caption}
+\usepackage{subfigure}
+\usepackage[hmargin={3.5cm,2.5cm},vmargin=2.5cm]{geometry}
+\usepackage{enumitem}
+\setlist{nosep} % or \setlist{noitemsep} to leave space around whole list
+
+\usepackage{color}
+\definecolor{light-gray}{gray}{0.5}
+
+\usepackage[noend]{algpseudocode}
+\algnewcommand{\LineComment}[1]{\State \(//\) \textcolor{light-gray}{#1}}
+
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+
+\usepackage{listings}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+    %frame=tblr,
+    language=C,
+    aboveskip=3mm,
+    belowskip=3mm,
+    showstringspaces=false,
+    columns=flexible,
+    basicstyle={\small\ttfamily},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=1
+}
+
+\usepackage{mathpazo} % math & rm
+\linespread{1.05} % Palatino needs more leading (space between lines)
+
+\usepackage[Sonny]{fncychap} %Sonny, Glenn, Lenny, Conny, Rejne, Bjarne, PetersLenny
+\ChNameUpperCase
+\ChNameVar{\raggedleft\huge\rm}
+\ChRuleWidth{1pt}
+\ChTitleUpperCase
+\ChNumVar{\raggedleft\bfseries\huge}
+\ChTitleVar{\raggedleft\Large\rm}
+
+\usepackage{nomencl}
+\makenomenclature
+
+\usepackage{pdfpages}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\raggedbottom
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%% </HEADER> %%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\normalfont
+
+
+\begin{document}
+
+% This is the first part of the document (frontmatter), use Roman numeration
+\frontmatter
+
+% Simple style
+\pagestyle{empty}
+
+\input{body/cover.tex}
+
+
+
+\input{body/abstract.tex}
+
+\includepdf[pages={1}]{body/aprobacion.pdf}
+
+\input{body/acknowledgment.tex}
+
+\tableofcontents
+\listoftables
+\listoffigures
+% Table of Symbols and Nomenclature
+%\printnomenclature
+
+\input{body/acronyms.tex}
+
+\mainmatter
+% Use double space
+\doublespacing
+% Now fancy style
+\pagestyle{fancy}
+% Left the right header clean
+\rhead{}
+
+
+\input{body/chapter1}
+\input{body/chapter2}
+\input{body/chapter3}
+\input{body/chapter4}
+\input{body/chapter5}
+
+% Appendixes
+%\appendix 
+%\input{Body/appendix1}
+
+% Final pages
+\backmatter
+
+% Use single space
+\singlespacing
+
+% Bibliography
+\cleardoublepage
+
+\refstepcounter{chapter}
+
+\addcontentsline{toc}{chapter}{\bibname}
+\bibliography{common/references.bib}
+
+\end{document}
